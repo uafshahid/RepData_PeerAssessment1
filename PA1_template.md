@@ -1,19 +1,13 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
-```{r setopetions,echo=TRUE}
- 
-```
+
 
 
 ## Loading and preprocessing the data
 
 
-```{r preprocessing}
+
+```r
    data<-read.csv("activity.csv",stringsAsFactors=FALSE)
    factoreddata<-transform(data,date=as.Date(date,format="%Y-%m-%d"))
    nonMissingData<-subset(data,data[,"steps"]!="NA")
@@ -26,31 +20,26 @@ output:
 
 1. Historgram of Number of Steps taken per day
 
-```{r histogram}
-   hist(dataperday$stepsperday,main='Histogram of Number of Steps Taken Per Day',xlab='Steps Per Day',col='red')   
 
+```r
+   hist(dataperday$stepsperday,main='Histogram of Number of Steps Taken Per Day',xlab='Steps Per Day',col='red')   
 ```
+
+![](./PA1_template_files/figure-html/histogram-1.png) 
 
 2. Mean and Median total number of steps taken per day 
 
-```{r meanmedian,results='hide'}
+
+```r
    meanperday<-mean(dataperday$stepsperday)
    medianperday<-median(dataperday$stepsperday)
 ```
 
-### The Mean steps taken per day are `r meanperday` and Median steps taken per day are `r medianperday`
+### The Mean steps taken per day are 1.0766189\times 10^{4} and Median steps taken per day are 10765
 
 
 ## What is the average daily activity pattern?
 
-1. Time Series Plot of 5 minute interval and the average number of steps taken
-
-```{r preprocessing}
-   factoreddata<-transform(nonMissingData,date=as.Date(date,format="%Y-%m-%d"))
-   
-   dataperday<-aggregate(nonMissingData$steps,by=list(nonMissingData$date),sum) 
-   names(dataperday)<-c("date","stepsperday")   
-```
 
 
 ## Imputing missing values
