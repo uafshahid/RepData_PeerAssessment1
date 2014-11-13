@@ -40,7 +40,29 @@
 
 ## What is the average daily activity pattern?
 
+1. Time Series Plot of 5 minute interval and the average number of steps taken
 
+
+```r
+   steps<-nonMissingData$steps
+   plot.ts(x=ts(steps,start=c(0,5),frequency=288),type="l",
+           ylab="Average Number of Steps Taken",
+           xlab="Time on the basis of 5 Minutes Interval",yaxt="n")
+   avg<-signif(mean(steps),digits=4)
+   axis(2,at=mean(steps),labels=paste("Average Value",avg,sep="\n"))
+```
+
+![](./PA1_template_files/figure-html/activitypattern-1.png) 
+
+2. The Five Minute Interval contains Maximum number of steps on average across all the days in the dataset
+
+
+```r
+   maxStepRow<-subset(nonMissingData,
+                      nonMissingData[,"steps"]==max(nonMissingData$steps))
+```
+
+### The 5 Minute interval Interval 610 to 615 on 2012-11-27 has maximum value of number of steps taken which is 806 
 
 ## Imputing missing values
 
