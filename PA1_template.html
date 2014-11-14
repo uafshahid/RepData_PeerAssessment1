@@ -102,6 +102,16 @@ if (window.hljs && document.readyState && document.readyState === "complete") {
 </div>
 <div id="imputing-missing-values" class="section level2">
 <h2>Imputing missing values</h2>
+<ol style="list-style-type: decimal">
+<li>Total number of Missing Values</li>
+</ol>
+<pre class="r"><code>   wholerowmissing&lt;-subset(data,is.na(data[,&quot;steps&quot;])|
+                              is.na(data[,&quot;date&quot;])|
+                              is.na(data[,&quot;interval&quot;]))
+   missingCount&lt;-length(wholerowmissing$steps)</code></pre>
+<div id="total-number-of-missing-rows-in-this-data-set-is-2304" class="section level3">
+<h3>Total Number of missing rows in this data set is 2304</h3>
+</div>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
 <h2>Are there differences in activity patterns between weekdays and weekends?</h2>

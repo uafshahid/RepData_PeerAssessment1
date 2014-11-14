@@ -66,6 +66,19 @@
 
 ## Imputing missing values
 
+1. Total number of Missing Values
+
+
+```r
+   wholerowmissing<-subset(data,is.na(data[,"steps"])|
+                              is.na(data[,"date"])|
+                              is.na(data[,"interval"]))
+   missingCount<-length(wholerowmissing$steps)
+```
+
+### Total Number of missing rows in this data set is 2304
+
+
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
